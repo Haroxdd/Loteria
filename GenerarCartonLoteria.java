@@ -1,11 +1,12 @@
 import java.awt.Graphics;
+import java.awt.event.*;
 import java.util.Random;
 import javax.swing.*;
 
-public class GenerarCartonLoteria extends JPanel{
+public class GenerarCartonLoteria extends JPanel implements MouseListener,MouseMotionListener{
     private Carta car1,car2,car3,car4,car5,car6,car7,car8,car9,car10,car11,car12,car13,car14,car15,car16;
-    private int x,y,Carton[][]=new int[4][4],valorGenerado;
-    int Cartas[]=new int[54];
+    private int x,y,Cartas[]=new int[54],Carton[][]=new int[4][4],valorGenerado;
+    String CartasJugadas="";
     private Programa p;
     private JTextArea a;
     public GenerarCartonLoteria(Programa p){
@@ -13,6 +14,11 @@ public class GenerarCartonLoteria extends JPanel{
         valorGenerado=0;
         generarCarton();
         LlenarRevolverMostrarC(Cartas);
+        this.addMouseListener(this);
+        this.addMouseMotionListener(this);
+    }
+    public int[] getVector(){
+        return Cartas;
     }
     private void LlenarRevolverMostrarC(int v[]){
         int contador=1;
@@ -91,5 +97,89 @@ public class GenerarCartonLoteria extends JPanel{
         car14.pintar(g);
         car15.pintar(g);
         car16.pintar(g);
+        repaint();
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(car1.estaEnArea(e.getPoint())){
+            car1.lanzamiento(e.getPoint());
+        }
+        if(car2.estaEnArea(e.getPoint())){
+            car2.lanzamiento(e.getPoint());
+        }
+        if(car3.estaEnArea(e.getPoint())){
+            car3.lanzamiento(e.getPoint());
+        }
+        if(car4.estaEnArea(e.getPoint())){
+            car4.lanzamiento(e.getPoint());
+        }
+        if(car5.estaEnArea(e.getPoint())){
+            car5.lanzamiento(e.getPoint());
+        }
+        if(car6.estaEnArea(e.getPoint())){
+            car6.lanzamiento(e.getPoint());
+        }
+        if(car7.estaEnArea(e.getPoint())){
+            car7.lanzamiento(e.getPoint());
+        }
+        if(car8.estaEnArea(e.getPoint())){
+            car8.lanzamiento(e.getPoint());
+        }
+        if(car9.estaEnArea(e.getPoint())){
+            car9.lanzamiento(e.getPoint());
+        }
+        if(car10.estaEnArea(e.getPoint())){
+            car10.lanzamiento(e.getPoint());
+        }
+        if(car11.estaEnArea(e.getPoint())){
+            car11.lanzamiento(e.getPoint());
+        }
+        if(car12.estaEnArea(e.getPoint())){
+            car12.lanzamiento(e.getPoint());
+        }
+        if(car13.estaEnArea(e.getPoint())){
+            car13.lanzamiento(e.getPoint());
+        }
+        if(car14.estaEnArea(e.getPoint())){
+            car14.lanzamiento(e.getPoint());
+        }
+        if(car15.estaEnArea(e.getPoint())){
+            car15.lanzamiento(e.getPoint());
+        }
+        if(car16.estaEnArea(e.getPoint())){
+            car16.lanzamiento(e.getPoint());
+        }
+        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        
     }
 }
